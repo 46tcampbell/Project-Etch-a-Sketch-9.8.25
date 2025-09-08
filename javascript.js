@@ -14,6 +14,9 @@ for (let i = 0; i < 256; i++) {
   div.style.width = '6.25%';
   div.style.margin = 'none';
   div.style.border = 'none';
+  div.addEventListener('mousemove', (e) =>
+    console.log(`${e.clientX} & ${e.clientY}`)
+  );
   mainContainer.appendChild(div);
 }
 
