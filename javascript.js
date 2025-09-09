@@ -42,6 +42,10 @@ button.addEventListener('click', (e) => {
   createGrid(gridSize);
 });
 
+function randNum() {
+  return Math.floor(Math.random() * 255) + 1;
+}
+
 function createGrid(gridSize) {
   const gridAmount = gridSize * gridSize;
   for (let i = 0; i < gridAmount; i++) {
@@ -63,6 +67,7 @@ function createGrid(gridSize) {
       const pixelY = e.clientY;
       pixelDiv.style.left = `${pixelX}px`;
       pixelDiv.style.top = `${pixelY}px`;
+      div.style.backgroundColor = `rgb(${randNum()}, ${randNum()}, ${randNum()})`;
       div.appendChild(pixelDiv);
     });
     mainContainer.appendChild(div);
