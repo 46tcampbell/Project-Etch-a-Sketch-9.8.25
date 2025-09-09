@@ -51,6 +51,7 @@ function createGrid(gridSize) {
   for (let i = 0; i < gridAmount; i++) {
     const div = document.createElement('div');
     div.style.backgroundColor = 'white';
+    div.style.opacity = '0.1';
     div.style.height = `${(1 / gridSize) * 100}%`;
     div.style.width = `${(1 / gridSize) * 100}%`;
     div.style.margin = 'none';
@@ -68,6 +69,12 @@ function createGrid(gridSize) {
       pixelDiv.style.left = `${pixelX}px`;
       pixelDiv.style.top = `${pixelY}px`;
       div.style.backgroundColor = `rgb(${randNum()}, ${randNum()}, ${randNum()})`;
+      const computedStyle = window.getComputedStyle(div);
+      const opacity = computedStyle.getPropertyValue('opacity');
+      const divOpacity = Number(opacity);
+      if (divOpacity < 1) {
+        div.style.opacity = `${divOpacity + 0.1}`;
+      }
       div.appendChild(pixelDiv);
     });
     mainContainer.appendChild(div);
